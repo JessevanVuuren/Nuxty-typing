@@ -1,0 +1,126 @@
+.title {
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.title>h1 {
+    font-size: 80px;
+    margin: 0px 0px 0px 30px;
+}
+
+.text-input {
+    display: flex;
+    justify-content: center;
+}
+
+.textarea {
+    width: 600px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    position: relative;
+    background-color: #282c34;
+}
+
+.code-text pre{
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.code-text {
+    pointer-events:none;
+    font-size: 20px;
+}
+
+*:focus {
+  outline: none;
+}
+
+.code-text-actual {
+    top: 10px;
+    position: absolute;
+    z-index: 1;
+}
+
+.code-text-error {
+    top: 10px;
+    position: absolute;
+}
+.code-text-error span {
+    color: red !important;
+}
+
+
+.code-text-hint span {
+    opacity: .65 !important;
+}
+
+.curser {
+    width: 1px;
+    z-index: 1;
+    height: 21px;
+    position: absolute;
+    background-color: white;
+}
+
+.curser-holder {
+    padding-top: 5px;
+    position: absolute;
+}
+
+.score-holder {
+    display: flex;
+    justify-content: center;
+
+}
+
+.score {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+}
+
+.stats {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column
+}
+
+.stats > h3 {
+    display: flex;
+}
+.stats > h3 > p {
+    margin-right: 10px;
+}
+
+.tool-tip-holder {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 3px 0px;
+}
+
+.tool-tip {
+    color: var(--ui-text-muted);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 600px;
+}
+
+.high-color {
+    color: var(--ui-primary);
+}
+
+.buttons-holder {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+}

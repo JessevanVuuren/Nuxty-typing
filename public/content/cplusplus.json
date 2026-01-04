@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Hello world",
+        "content": "cout << \"Hello World\""
+    },
+    {
+        "name": "int main",
+        "content": "int main() {\n\tcout << \"Hello World\";\n\treturn 0;\n}"
+    }
+]

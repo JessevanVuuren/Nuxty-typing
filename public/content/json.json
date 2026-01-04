@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Hello world",
+        "content": "{\"Hello\":\"World\"}"
+    },
+    {
+        "name": "Stringify",
+        "content": "{\"name\":\"John\", \"age\":30, \"car\":null}"
+    }
+]

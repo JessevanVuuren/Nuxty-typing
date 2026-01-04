@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Hello world",
+        "content": "print(\"Hello world!\")"
+    },
+    {
+        "name": "First variable",
+        "content": "amount = 10 # variable named amount"
+    },
+    {
+        "name": "Multiline",
+        "content": "amount = 10\n\nprint(\"Amount:\", amount)"
+    }
+]

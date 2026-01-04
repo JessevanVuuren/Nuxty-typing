@@ -1,0 +1,66 @@
+.language {
+    border: 1px solid var(--ui-border);
+    display: flex;
+    position: relative;
+    width: 300px;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.language:hover {
+    background: linear-gradient(90deg, rgba(15, 23, 43, 1) 0%, rgba(36, 42, 71, 1) 100%);
+    cursor: pointer;
+}
+
+.language-hover {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+}
+
+.language-hover {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+
+    transform: translateX(0) translateY(0);
+    transition: transform 0.2s ease;
+}
+
+.language:hover>.language-hover {
+    transform: translateX(20px) translateY(-80px);
+}
+
+.language-hover>img {
+    filter: grayscale(1);
+    transform: rotate(45deg) translate(50px, 50px);
+}
+
+.language-hover>img {
+    filter: grayscale(1);
+}
+
+.language>img {
+    margin-right: 40px;
+}
+
+.language-text>h1 {
+    color: var(--ui-text-highlighted);
+    font-size: 30px;
+
+}
+
+.language-text>h2 {
+    color: var(--ui-text-muted);
+    font-size: 16px;
+}
+
+.languages-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

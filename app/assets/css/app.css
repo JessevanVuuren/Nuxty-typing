@@ -1,0 +1,8 @@
+/* https://ui.nuxt.com/docs/getting-started/theme/design-system */
+
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  /* Your custom design tokens go here */
+}
