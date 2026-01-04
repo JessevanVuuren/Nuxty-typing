@@ -32,6 +32,7 @@ const error_position = ref(0)
 let idle = 0
 let start_counter
 let update_counter
+let curser_animation;
 
 const clamp = (num, min, max) => {
   return num <= min ? min : num >= max ? max : num
@@ -50,7 +51,7 @@ const key_press_handler = (e) => {
 
   console.log(e)
 
-  if (e.key == "Enter" && char == "\n" || e.key == "Tab" && char == "\t" || e.key === char) {
+  if (e.key == "Enter" && char == "\n" || e.code == "Quote" && char == "\"" || e.code == "Backquote" && char == "`" || e.key == "Tab" && char == "\t" || e.key === char) {
     if (position.value === error_position.value) {
       position.value++
       error_position.value++
@@ -124,12 +125,18 @@ watch(actual_text, async () => {
   curser.value.style.marginTop = (lines.length - 1) * height_per_line + "px"
 })
 
-const curser_animation = setInterval(() => {
+const curser_interval = () => {
   idle++
   if (idle > 2) {
     curser.value.style.display = curser.value.style.display === "block" ? "none" : "block"
   }
-}, 700)
+}
+
+const get_fasted_time = (elapsed_time, fasted_time, latest_time) => {
+  if (latest_time === 0 && fasted_time === 0) return elapsed_time
+  if (elapsed_time < fasted_time && elapsed_time !== 0) return elapsed_time
+  return fasted_time
+}
 
 
 const get_local_stats = () => {
@@ -147,6 +154,7 @@ const get_local_stats = () => {
 }
 
 onMounted(() => {
+  curser_animation = setInterval(curser_interval, 700)
   get_local_stats()
   document.addEventListener('keydown', key_press_handler)
 })
@@ -156,13 +164,6 @@ onBeforeUnmount(() => {
   cancelAnimationFrame(update_counter)
   document.removeEventListener('keydown', key_press_handler)
 })
-
-const get_fasted_time = (elapsed_time, fasted_time, latest_time) => {
-  if (latest_time === 0 && fasted_time === 0) return elapsed_time
-  if (elapsed_time < fasted_time && elapsed_time !== 0) return elapsed_time
-  return fasted_time
-}
-
 
 </script>
 
@@ -203,12 +204,15 @@ const get_fasted_time = (elapsed_time, fasted_time, latest_time) => {
     <div class="text-input">
       <span class="textarea" style="white-space: pre-line">
 
-        <Shiki tabindex="-1" lang="python" :code="actual_text" as="span" class="code-text code-text-actual" ref="typed_code" />
+        <Shiki tabindex="-1" lang="python" :code="actual_text" as="span" class="code-text code-text-actual"
+          ref="typed_code" />
         <div class="curser-holder">
           <div class="curser" ref="curser" />
         </div>
-        <Shiki tabindex="-1" lang="python" :code="error_text" as="span" class="code-text code-text-error" ref="error_code" />
-        <Shiki tabindex="-1" lang="python" :code="exercise.content" as="span" class="code-text code-text-hint" ref="hint_code" />
+        <Shiki tabindex="-1" lang="python" :code="error_text" as="span" class="code-text code-text-error"
+          ref="error_code" />
+        <Shiki tabindex="-1" lang="python" :code="exercise.content" as="span" class="code-text code-text-hint"
+          ref="hint_code" />
       </span>
     </div>
 

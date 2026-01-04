@@ -13,13 +13,17 @@ const language = computed(() =>
   languages_data.value?.find(lang => lang.page_name === route.params.language)
 )
 
-const data = JSON.parse(localStorage.getItem("data")) || {}
+const data = computed(() =>
+  JSON.parse(localStorage.getItem("data")) || {}
+ 
+)
+
 const get_local_stats = (index) => {
 
   const name = route.params.language
 
-  if (data.hasOwnProperty(name) && data[name].hasOwnProperty(index)) {
-    const list = data[name][index]
+  if (data.value.hasOwnProperty(name) && data.value[name].hasOwnProperty(index)) {
+    const list = data.value[name][index]
 
     return [Math.min(...list), list.at(-1)]
   }

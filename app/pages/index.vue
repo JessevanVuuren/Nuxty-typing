@@ -2,8 +2,9 @@
 <!-- https://svgl.app/?search=python -->
 <script setup>
 import '~/assets/css/index.css'
-const router = useRouter()
-const { data, pending, error, refresh } = await useFetch("/content/languages.json", { server: false })
+
+const { data, pending, error, refresh } = await useFetch("/content/languages.json", {server:false})
+
 </script>
 
 <template>
